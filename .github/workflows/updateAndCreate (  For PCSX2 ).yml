@@ -16,7 +16,7 @@ jobs:
     name: Sync latest commits from upstream repo
     steps:
     - name: Checkout target repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
           fetch-depth: 0
     - name: Sync upstream changes
@@ -67,7 +67,7 @@ jobs:
         with:
           version: ${{ steps.previoustag.outputs.tag }}
       - name: Tag commit
-        uses: tvdias/github-tagger@v0.0.1
+        uses: tvdias/github-tagger@v0.0.2
         with:
           repo-token: "${{ secrets.MY_TOKEN }}"
           tag: ${{ steps.semvers.outputs.patch }}
